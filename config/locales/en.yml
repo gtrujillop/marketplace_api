@@ -31,3 +31,9 @@
 
 en:
   hello: "Hello world"
+  exceptions:
+    permissions:
+      access_denied:
+        title: 'Permissions: Access Denied'
+        detail: 'The Current User does not have permission to %{action} a %{subject_class_name} with id: %{subject_id}.'
+        status: 'unauthorized'

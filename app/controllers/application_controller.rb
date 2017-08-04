@@ -1,4 +1,6 @@
 class ApplicationController < ActionController::API
+  rescue_from UnauthorizedError, with: :render_unauthorized_response
+
   include ActionController::RequestForgeryProtection
   respond_to :html, :json
   # Prevent CSRF attacks by raising an exception.
@@ -19,6 +21,10 @@ class ApplicationController < ActionController::API
     if user && Devise.secure_compare(user.authentication_token, user_auth_token)
       sign_in(user, store: false)
     end
+  end
+
+  def render_unauthorized_response(exception)
+    render json: { error: exception.message }, status: :unauthorized
   end
 
   def configure_permitted_parameters

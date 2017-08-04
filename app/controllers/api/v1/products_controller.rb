@@ -7,10 +7,21 @@ module Api::V1
       Product.transaction do
         products_params.each do |product|
           Product.create(
-
+            name: product[:name],
+            brand: product[:brand],
+            model: product[:model],
+            sku: product[:sku],
+            desc: product[:desc],
+            price_cents: product[:price] * 100
           )
         end
       end
+      render json: Product.all, status: 200
+    end
+
+    def index
+      @products = Product.all
+      render json: @products, status: 200
     end
 
     def products_params
