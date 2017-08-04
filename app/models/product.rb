@@ -14,4 +14,7 @@
 #
 
 class Product < ApplicationRecord
+  validates :name, :brand, :model, :sku, presence: true
+  validates :sku, uniqueness: true
+  validates :price_cents, numericality: true, presence: true
 end

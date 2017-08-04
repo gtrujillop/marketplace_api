@@ -5,8 +5,8 @@ Rails.application.routes.draw do
       devise_for :users, defaults: { format: :json }, controllers: { sessions: 'api/v1/sessions', registrations: 'api/v1/registrations' }
       resources :products, only: [:create, :index, :show]
       resources :users do
-        resources :carts
-        resources :orders, except: [:destroy]
+        resources :carts, only: [:create, :update, :destroy]
+        resources :orders, except: [:new, :edit, :destroy]
       end
     end
   end
