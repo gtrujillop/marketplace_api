@@ -3,7 +3,7 @@ module Api::V1
     before_action :authenticate_user_from_token!
 
     def index
-      #code
+      
     end
 
     def create

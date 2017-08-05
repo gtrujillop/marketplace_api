@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::API
   rescue_from UnauthorizedError, with: :render_unauthorized_response
+  rescue_from NotLoggedInError, with: :render_not_logged_in
 
   include ActionController::RequestForgeryProtection
   respond_to :html, :json

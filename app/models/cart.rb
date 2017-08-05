@@ -11,4 +11,20 @@
 class Cart < ApplicationRecord
   belongs_to :user
   has_one :order, dependent: :destroy
+
+  def process(params)
+    create_order unless order
+    if order
+    end
+  end
+
+  private
+
+  def create_order
+    order = Order.create(
+      cart: self,
+      total_cents: 0,
+      state: :created
+    )
+  end
 end
