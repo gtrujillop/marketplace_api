@@ -14,8 +14,7 @@ class Cart < ApplicationRecord
 
   def process(params)
     create_order unless order
-    if order
-    end
+    
   end
 
   private

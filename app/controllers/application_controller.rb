@@ -3,6 +3,8 @@ class ApplicationController < ActionController::API
   rescue_from NotLoggedInError, with: :render_not_logged_in
 
   include ActionController::RequestForgeryProtection
+  include ActionController::MimeResponds
+  
   respond_to :html, :json
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

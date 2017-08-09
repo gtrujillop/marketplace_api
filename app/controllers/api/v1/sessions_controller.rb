@@ -18,7 +18,7 @@ module Api::V1
 
       if resource.valid_password?(params[:password])
         render json: {
-          user: { email: resource.email, auth_token: resource.authentication_token }
+          user: resource
         }, success: true, status: :created
       else
         invalid_login_attempt
@@ -26,12 +26,11 @@ module Api::V1
     end
 
     def destroy
-      user = User.find_by_authentication_token(request.headers['X-API-TOKEN'])
-      if user
+      if current_user
         user.reset_authentication_token!
         render json: { message: 'Session deleted.' }, success: true, status: 204
       else
-        render json: { message: 'Invalid token.' }, status: 404
+        render json: { message: 'User not found.' }, status: 404
       end
     end
 
