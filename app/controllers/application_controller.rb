@@ -1,7 +1,11 @@
 class ApplicationController < ActionController::API
   rescue_from UnauthorizedError, with: :render_unauthorized_response
+  rescue_from NotLoggedInError, with: :render_not_logged_in
+  rescue_from StandardError, with: :unprocessable
 
   include ActionController::RequestForgeryProtection
+  include ActionController::MimeResponds
+
   respond_to :html, :json
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -25,6 +29,10 @@ class ApplicationController < ActionController::API
 
   def render_unauthorized_response(exception)
     render json: { error: exception.message }, status: :unauthorized
+  end
+
+  def unprocessable(exception)
+    render json: { error: exception.message }, status: :unprocessable_entity
   end
 
   def configure_permitted_parameters
