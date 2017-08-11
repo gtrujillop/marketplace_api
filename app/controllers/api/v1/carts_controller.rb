@@ -3,7 +3,7 @@ module Api::V1
     before_action :authenticate_user_from_token!
 
     def create
-      @cart = Cart.create(user: current_user, state: :collecting)
+      @cart = Cart.create(user: current_user)
       if @cart.process(params)
         render json: @cart, status: :ok
       else
