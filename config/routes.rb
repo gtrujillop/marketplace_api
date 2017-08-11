@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :products, only: [:create, :index, :show]
       resources :users do
         resources :carts, only: [:create, :update, :destroy]
-        resources :orders, except: [:new, :edit, :destroy]
+        resources :orders, only: [:index]
       end
     end
   end
