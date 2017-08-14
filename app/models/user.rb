@@ -25,6 +25,7 @@ class User < ApplicationRecord
   has_one :address, as: :addressable
   has_many :carts, dependent: :destroy
   before_save :ensure_authentication_token!
+  after_create :send_sign_up_confirmation_email
 
   def generate_secure_token_string
     SecureRandom.urlsafe_base64(25).tr('lIO0', 'sxyz')
@@ -45,5 +46,9 @@ class User < ApplicationRecord
 
   def reset_authentication_token!
     self.authentication_token = generate_authentication_token
+  end
+
+  def send_sign_up_confirmation_email
+    SignUpJob.perform_later(self)
   end
 end
