@@ -27,7 +27,7 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -38,7 +38,6 @@ Rails.application.configure do
   config.active_record.migration_error = :page_load
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
