@@ -21,16 +21,16 @@ class Order < ApplicationRecord
   after_create :clone_address_from_cart_user
 
   def create_order_items(items)
-    items.each do |item|
-      product = Product.find(item[:id])
+    created_items = items.map do |item|
       OrderItem.create(
         order: self,
-        product: product
+        product: Product.find(item[:id])
       )
     end
-    created_items = OrderItem.where(order: self)
     self.state = :confirmed
-    self.total_cents = created_items.map(&:product).map(&:price_cents).reduce(:+)
+    self.total_cents = created_items.map(&:product)
+                                    .map(&:price_cents)
+                                    .reduce(:+)
     save
   rescue StandardError => e
     puts e
