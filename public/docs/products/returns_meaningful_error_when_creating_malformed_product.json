@@ -1,0 +1,36 @@
+{
+  "resource": "Products",
+  "resource_explanation": null,
+  "http_method": "POST",
+  "route": "v1/products",
+  "description": "Returns meaningful error when creating malformed product",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "v1/products",
+      "request_body": "products[][price]=200&products[][desc]=Foo+Bar+Baz",
+      "request_headers": {
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 422,
+      "response_status_text": "Unprocessable Entity",
+      "response_body": "{\n  \"error\": \"Transaction failed due to {:message=>\\\"Products were not created due to \\\\nValidation failed: Name can't be blank, Brand can't be blank, Model can't be blank, Sku can't be blank\\\"}\"\n}",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

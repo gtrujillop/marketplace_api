@@ -1,0 +1,45 @@
+{
+  "resource": "Products",
+  "resource_explanation": null,
+  "http_method": "POST",
+  "route": "v1/products",
+  "description": "Creates products",
+  "explanation": "This EP receives an array of products. If successful, returns all products and 200 OK. If fails, Unprocessable error",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "v1/products",
+      "request_body": "products[][name]=Dummy+Product&products[][brand]=LG&products[][model]=Z8&products[][sku]=2323sdfsdf&products[][price]=180&products[][desc]=Foo+Bar+Baz",
+      "request_headers": {
+        "X-Api-Email": "dummy_user@miemail.com",
+        "X-Api-Token": "swHNWzwWufT-fdRHZ5yqbwMR5nC5dotwPg",
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[\n  {\n    \"id\": 29,\n    \"name\": \"Dummy Product\",\n    \"brand\": \"LG\",\n    \"model\": \"Z8\",\n    \"sku\": \"2323sdfsdf\",\n    \"price_cents\": 18000,\n    \"desc\": \"Foo Bar Baz\",\n    \"created_at\": \"2017-08-17T21:30:42.127Z\",\n    \"updated_at\": \"2017-08-17T21:30:42.127Z\"\n  }\n]",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"8503ea65abf2590679b0a1ac0d571e4c\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "c21bb0c1-e70e-480d-a407-a82c123c3402",
+        "X-Runtime": "0.091535",
+        "Vary": "Origin",
+        "Content-Length": "200"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

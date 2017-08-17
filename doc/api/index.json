@@ -1,0 +1,31 @@
+{
+  "resources": [
+    {
+      "name": "Products",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Creates products",
+          "link": "products/creates_products.json",
+          "groups": "all",
+          "route": "v1/products",
+          "method": "post"
+        },
+        {
+          "description": "Returns all products",
+          "link": "products/returns_all_products.json",
+          "groups": "all",
+          "route": "v1/products",
+          "method": "get"
+        },
+        {
+          "description": "Returns meaningful error when creating malformed product",
+          "link": "products/returns_meaningful_error_when_creating_malformed_product.json",
+          "groups": "all",
+          "route": "v1/products",
+          "method": "post"
+        }
+      ]
+    }
+  ]
+}

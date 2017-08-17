@@ -1,0 +1,36 @@
+{
+  "resource": "Products",
+  "resource_explanation": null,
+  "http_method": "POST",
+  "route": "v1/products",
+  "description": "Creates products",
+  "explanation": "This EP receives an array of products. If successful, returns all products and 200 OK. If fails, Unprocessable error",
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "POST",
+      "request_path": "v1/products",
+      "request_body": "products[][name]=Dummy+Product&products[][brand]=LG&products[][model]=Z8&products[][sku]=2323sdfsdf&products[][price]=180&products[][desc]=Foo+Bar+Baz",
+      "request_headers": {
+        "Host": "example.org",
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/x-www-form-urlencoded",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[\n  {\n    \"id\": 26,\n    \"name\": \"Dummy Product\",\n    \"brand\": \"LG\",\n    \"model\": \"Z8\",\n    \"sku\": \"2323sdfsdf\",\n    \"price_cents\": 18000,\n    \"desc\": \"Foo Bar Baz\",\n    \"created_at\": \"2017-08-17T21:27:23.296Z\",\n    \"updated_at\": \"2017-08-17T21:27:23.296Z\"\n  }\n]",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

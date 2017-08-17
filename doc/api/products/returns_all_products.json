@@ -1,0 +1,42 @@
+{
+  "resource": "Products",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "v1/products",
+  "description": "Returns all products",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "v1/products",
+      "request_body": null,
+      "request_headers": {
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[\n  {\n    \"id\": 30,\n    \"name\": \"Dummy Product 1\",\n    \"brand\": \"LG\",\n    \"model\": \"z8\",\n    \"sku\": \"123098\",\n    \"price_cents\": 23450,\n    \"desc\": null,\n    \"created_at\": \"2017-08-17T21:30:42.219Z\",\n    \"updated_at\": \"2017-08-17T21:30:42.219Z\"\n  },\n  {\n    \"id\": 31,\n    \"name\": \"Dummy Product 2\",\n    \"brand\": \"Samsung\",\n    \"model\": \"Galaxy S8\",\n    \"sku\": \"123099\",\n    \"price_cents\": 49999,\n    \"desc\": null,\n    \"created_at\": \"2017-08-17T21:30:42.224Z\",\n    \"updated_at\": \"2017-08-17T21:30:42.224Z\"\n  }\n]",
+      "response_headers": {
+        "Content-Type": "application/json; charset=utf-8",
+        "ETag": "W/\"286220671f0fdc9f7d65cfda11579c39\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "6d76d4d2-3e2a-4316-a9c5-05774a455641",
+        "X-Runtime": "0.005773",
+        "Vary": "Origin",
+        "Content-Length": "389"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}
