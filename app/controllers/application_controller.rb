@@ -2,6 +2,7 @@ class ApplicationController < ActionController::API
   rescue_from UnauthorizedError, with: :render_unauthorized_response
   rescue_from NotLoggedInError, with: :render_not_logged_in
   rescue_from StandardError, with: :unprocessable
+  rescue_from ActiveRecord::RecordNotSaved, with: :failed_transaction
 
   include ActionController::RequestForgeryProtection
   include ActionController::MimeResponds
@@ -18,7 +19,6 @@ class ApplicationController < ActionController::API
     user_email = request.headers["X-API-EMAIL"].presence
     user_auth_token = request.headers["X-API-TOKEN"].presence
     user = user_email && User.find_by_email(user_email)
-
     # Notice how we use Devise.secure_compare to compare the token
     # in the database with the token given in the params, mitigating
     # timing attacks.
@@ -33,6 +33,10 @@ class ApplicationController < ActionController::API
 
   def unprocessable(exception)
     render json: { error: exception.message }, status: :unprocessable_entity
+  end
+
+  def failed_transaction(exception)
+    render json: { error: "Transaction failed due to #{exception.message}" }, status: :unprocessable_entity and return
   end
 
   def configure_permitted_parameters
