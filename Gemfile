@@ -26,6 +26,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'resque'
 gem 'resque-scheduler'
+
+gem 'rspec_api_documentation'
+gem "apitome"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
