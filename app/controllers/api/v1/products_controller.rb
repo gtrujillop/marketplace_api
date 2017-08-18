@@ -31,7 +31,7 @@ module Api::V1
     def show
       @product = Product.find(params[:id])
       if @product
-        render json: @products, status: 200
+        render json: @product, status: 200
       else
         render json: { error: 'Product not found' }, status: 404
       end
